@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Laboulette : business plan (document de travail)</title>
+<meta name="description" content="Business plan de travail de Laboulette, boulettes boraines personnalisables. Prototype, chiffres à valider.">
+<meta name="theme-color" content="#161211">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../app/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="bp.css">
+</head>
+<body>
+<a class="skip" href="#resume">Aller au contenu</a>
+<div class="progress" aria-hidden="true"><span id="prog"></span></div>
+
+<header class="top">
+ <div class="bar">
+  <a href="../" class="brand" aria-label="Laboulette, retour au site"><img src="../logo/couleur-fond-fonce/laboulette_horizontal_couleur-fond-fonce.svg" alt="Laboulette" class="logo"></a>
+  <span class="tag">Business plan</span>
+  <nav class="toc" id="toc" aria-label="Sommaire">
+   <a href="#resume">Résumé</a><a href="#probleme">Opportunité</a><a href="#produit">Produit</a><a href="#cibles">Cibles</a><a href="#canaux">Canaux</a><a href="#marche">Marché</a><a href="#production">Production</a><a href="#afsca">AFSCA</a><a href="#equipe">Équipe</a><a href="#budget">Budget</a><a href="#jalons">Jalons</a><a href="#risques">Risques</a><a href="#suite">Suite</a>
+  </nav>
+  <button class="printbtn" onclick="window.print()" aria-label="Imprimer ou enregistrer en PDF">PDF</button>
+ </div>
+</header>
+
+<div class="banner" role="note"><strong>Document de travail, prototype.</strong> Version du 18 novembre 2026. Aucun prix de vente, aucune certification, aucune enseigne, aucun producteur n'est fixé. Les montants sont des fourchettes de recherche, pas des devis. Les hypothèses sont marquées <span class="hyp">Hypothèse</span> et les points ouverts <span class="todo">À étudier</span>.</div>
+
+<!-- HERO -->
+<section class="hero">
+ <div class="wrap hero-grid">
+  <div class="hero-txt">
+   <span class="eyebrow">Borinage · Hainaut · Belgique</span>
+   <h1>La boulette boraine,<br><em>composée par toi.</em></h1>
+   <p class="lead">Haché dosé au gramme, roulée à la main, cuite au four, sauce à la carte. Sous vide, en boîte, livrée ou à retirer. Fais pas le malin&nbsp;: celle-là, c'est la tienne.</p>
+   <div class="kpis">
+    <div class="kpi"><b data-count="120">120</b><span>g crus, calibre unique</span></div>
+    <div class="kpi"><b data-count="6">6</b><span>recettes signatures</span></div>
+    <div class="kpi"><b data-count="3">3</b><span>canaux de vente</span></div>
+    <div class="kpi"><b>1</b><span>fondateur au départ</span></div>
+   </div>
+  </div>
+  <div class="hero-vis" aria-hidden="true">
+   <div class="ball b1"></div><div class="ball b2"></div><div class="ball b3"></div>
+   <img src="../logo/couleur-fond-fonce/laboulette_vertical_couleur-fond-fonce.svg" alt="" class="hero-logo">
+  </div>
+ </div>
+ <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C240 90 480 0 720 30 S1200 80 1440 20 V80 H0Z" fill="#fff3e0"/></svg>
+</section>
+
+<main>
+<!-- 1 RESUME -->
+<section id="resume" class="sec">
+ <div class="wrap">
+  <div class="sh"><span class="num">01</span><h2>Résumé</h2></div>
+  <div class="grid g2">
+   <div class="card big reveal">
+    <p><strong>Laboulette</strong> est une marque de boulettes boraines <strong>personnalisables</strong>. Le client compose sa boulette dans une appli : haché dosé au gramme, garnitures, herbes, épices, puis une sauce dans une carte courte. L'atelier roule chaque boulette à la main au calibre traditionnel de <strong>120 g crus</strong>, la cuit au four, la refroidit, la met sous vide et l'emballe dans une boîte en carton.</p>
+    <p>Le lancement se fait <strong>en solo</strong>, dans un petit atelier du Borinage, en <strong>livraison locale et click-and-collect</strong>. L'offre s'étend ensuite à une <strong>Box</strong> (repas ou abonnement), à une <strong>offre pro</strong>, puis à la <strong>vente en magasin via une grande enseigne exclusive</strong>, encore à trouver.</p>
+   </div>
+   <div class="stack">
+    <div class="card dark reveal"><span class="lbl">Investissement de départ (recalculé pour 120 g)</span>
+     <div class="range"><b>≈ 31 000 – 79 000 €</b><span>scénario bas, HTVA</span></div>
+     <div class="range"><b>≈ 123 000 – 282 000 €</b><span>scénario haut, HTVA, sans IFS</span></div>
+     <p class="small light">Fourchettes de recherche du 18/11/2026, hors salaire du fondateur. Détail en <a href="#budget">section 10</a>.</p>
+    </div>
+    <div class="card yellow reveal"><span class="lbl">Ce qu'on demande au plan</span>
+     <ul class="ticks"><li>Valider recettes, poids cuit et durée de conservation</li><li>Fixer le statut AFSCA avant d'aménager</li><li>Tester la demande en local avant la grande distribution</li></ul>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 2 PROBLEME -->
+<section id="probleme" class="sec alt">
+ <div class="wrap">
+  <div class="sh"><span class="num">02</span><h2>Problème et opportunité</h2></div>
+  <div class="grid g3">
+   <div class="card reveal"><div class="ico">🥄</div><h3>Le plat qu'on aime, en version figée</h3><p>Les boulettes toutes faites sont vendues en recette unique : même haché, même sauce pour tout le monde. Ceux qui veulent moins de porc, sans œuf ou plus épicé n'ont pas le choix. <span class="hyp">Hypothèse</span> à confirmer par une enquête clients.</p></div>
+   <div class="card reveal"><div class="ico">⏱️</div><h3>Le fait-maison prend du temps</h3><p>Rouler 120 g à la main, cuire, faire la sauce : c'est une soirée. Les Belges achètent de plus en plus de plats et de préparations de viande prêts à consommer (voir <a href="#marche">marché</a>).</p></div>
+   <div class="card reveal"><div class="ico">⛏️</div><h3>Une identité boraine forte</h3><p>Terrils, gaillettes, ducasses : un terroir qui parle aux gens du coin et intrigue les autres. Aucune marque de boulettes boraines personnalisables n'a été identifiée. <span class="todo">À étudier</span> : recherche d'antériorité et de concurrents directs.</p></div>
+  </div>
+  <div class="quote reveal">« Ton haché. Ce que tu mets dedans. Ta sauce. Ta boulette. »</div>
+ </div>
+</section>
+
+<!-- 3 PRODUIT -->
+<section id="produit" class="sec">
+ <div class="wrap">
+  <div class="sh"><span class="num">03</span><h2>Concept et produit</h2></div>
+  <div class="steps reveal">
+   <div class="step"><span>1</span><b>Ton haché</b><small>dosé au gramme, maison ou sur mesure</small></div>
+   <div class="step"><span>2</span><b>Le dedans</b><small>garnitures, herbes, épices</small></div>
+   <div class="step"><span>3</span><b>Ta sauce</b><small>à la carte</small></div>
+   <div class="step"><span>4</span><b>Roulée main</b><small>120 g crus, cuite au four</small></div>
+   <div class="step"><span>5</span><b>Sous vide</b><small>en boîte carton, livrée ou retirée</small></div>
+  </div>
+  <div class="grid g2 mt">
+   <div class="card reveal">
+    <h3>La fiche produit</h3>
+    <table class="spec">
+     <tr><th>Calibre</th><td>Unique, 120 g crus, farce comprise. Poids cuit <span class="hyp">Hypothèse</span> environ 95 à 110 g (10 à 20 % de perte), à peser en vrai.</td></tr>
+     <tr><th>Haché</th><td>Dosé au gramme : balance 1 g, mélangeur mécanique, doseuse contrôlée à la pesée.</td></tr>
+     <tr><th>Cuisson</th><td>Au four, cible 70 °C à cœur pendant 2 minutes, à valider et enregistrer.</td></tr>
+     <tr><th>Sauces</th><td>Carte courte, préparées en marmites : Liégeoise, tomate, moutarde, forestière, Brabançonne (carte de travail).</td></tr>
+     <tr><th>Emballage</th><td>Sachet sous vide dans une boîte en carton imprimée.</td></tr>
+     <tr><th>Frais ou surgelé</th><td>C'est l'entreprise qui décide, pas le client. Frais : DLC courte de 4 jours maximum tant qu'aucune étude de conservation n'est faite.</td></tr>
+     <tr><th>Producteur local</th><td>Option payante, <strong>tarif à définir</strong>. Aucun producteur n'est choisi.</td></tr>
+    </table>
+   </div>
+   <div class="card reveal">
+    <h3>Les six signatures</h3>
+    <div class="sig">
+     <div><b>La Terrilette</b></div><div><b>La Gueule Noire</b></div><div><b>La Ducasse</b></div>
+     <div><b>La Fieu</b></div><div><b>La Chiconnette</b></div><div><b>La Verte du Coron</b></div>
+    </div>
+    <p class="small">Recettes de démonstration présentées sur le site. Compositions, allergènes et conservation à valider en production.</p>
+    <h3 class="mt">Les offres</h3>
+    <div class="offers">
+     <div class="offer"><span>🏠</span><b>Particulier</b><small>à la carte, en livraison ou retrait</small></div>
+     <div class="offer"><span>📦</span><b>La Box</b><small>repas ou abonnement</small></div>
+     <div class="offer"><span>🍽️</span><b>Offre pro</b><small>grands formats, sauce à part</small></div>
+    </div>
+   </div>
+  </div>
+  <div class="appshots reveal">
+   <figure class="shot desk"><img src="img/app-desktop.png" alt="L'appli Laboulette sur ordinateur : configurateur avec récapitulatif" loading="lazy" width="1280" height="800"><figcaption>L'appli sur ordinateur</figcaption></figure>
+   <figure class="shot phone"><img src="img/app-mobile.png" alt="L'appli Laboulette sur téléphone" loading="lazy" width="780" height="1688"><figcaption>Sur téléphone</figcaption></figure>
+   <div class="shot-txt">
+    <span class="eyebrow">Déjà en ligne</span>
+    <h3>L'appli pour composer sa boulette</h3>
+    <p>Appli installable (PWA) qui marche hors ligne. On y compose sa boulette de A à Z, en particulier ou en pro, on l'enregistre, on la partage par lien et on imprime sa fiche. Pas de prix ni de paiement : c'est une démo.</p>
+    <a class="btn" href="../app/">Ouvrir l'appli</a> <a class="btn ghost" href="../app/installer.html">L'installer</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 4 CIBLES -->
+<section id="cibles" class="sec alt">
+ <div class="wrap">
+  <div class="sh"><span class="num">04</span><h2>Clientèle cible</h2></div>
+  <div class="grid g4">
+   <div class="persona reveal"><div class="av">👨‍👩‍👧</div><h3>Les familles du coin</h3><p>Veulent un plat qui plaît à tout le monde, avec une variante sans œuf ou moins épicée pour les petits.</p></div>
+   <div class="persona reveal"><div class="av">🧑‍💻</div><h3>Les actifs pressés</h3><p>Une à deux personnes, peu de temps le soir. Le format sous vide à réchauffer et la Box leur parlent.</p></div>
+   <div class="persona reveal"><div class="av">🍟</div><h3>Les pros de bouche</h3><p>Friteries, brasseries, cantines, traiteurs : grands formats et sauce à part.</p></div>
+   <div class="persona reveal"><div class="av">🎁</div><h3>Les nostalgiques</h3><p>Borains partis ailleurs ou amateurs de terroir, sensibles au récit et à l'option producteur local.</p></div>
+  </div>
+  <p class="note reveal"><span class="hyp">Hypothèse</span> Ces profils viennent de l'atelier produit. Leur taille et leur volonté de payer ne sont pas mesurées : <span class="todo">À étudier</span> par enquête et prévente test.</p>
+ </div>
+</section>
+
+<!-- 5 CANAUX -->
+<section id="canaux" class="sec">
+ <div class="wrap">
+  <div class="sh"><span class="num">05</span><h2>Canaux</h2></div>
+  <div class="channels">
+   <div class="ch reveal"><div class="chi">🚚</div><h3>Livraison</h3><p>Locale, en caisses isothermes au départ, puis en utilitaire frigorifique.</p><span class="pill go">Dès le lancement</span></div>
+   <div class="ch reveal"><div class="chi">🛍️</div><h3>Click-and-collect</h3><p>Commande dans l'appli, retrait à l'atelier ou en point relais.</p><span class="pill go">Dès le lancement</span></div>
+   <div class="ch reveal"><div class="chi">🏬</div><h3>En magasin</h3><p>Via une grande enseigne exclusive, en SKU fixes (signatures, calibre unique). Enseigne non choisie.</p><span class="pill later">Après agrément et volume</span></div>
+  </div>
+  <div class="callout reveal"><b>Point de vigilance.</b> Le budget de recherche juge qu'un contrat exclusif avec une grande chaîne n'est pas réaliste dès le premier jour pour un fondateur seul : il faut l'agrément AFSCA adapté, une capacité de livraison régulière et souvent une certification de type IFS. On vise d'abord un test régional limité. Les conditions commerciales d'entrée en rayon ne sont pas publiques en Belgique : <span class="todo">À étudier</span>.</div>
+ </div>
+</section>
+
+<!-- 6 MARCHE -->
+<section id="marche" class="sec alt">
+ <div class="wrap">
+  <div class="sh"><span class="num">06</span><h2>Marché et concurrence</h2></div>
+  <p class="intro">Uniquement des chiffres publiés, avec leur source et leur date. Rien ici ne mesure le marché de la boulette en particulier.</p>
+  <div class="grid g3">
+   <div class="stat reveal"><b><span data-count="28.4" data-dec="1">28,4</span> kg</b><p>de viande et volaille fraîches ou surgelées achetées pour la maison, par habitant, en Belgique en 2025.</p><cite>VLAM, d'après le panel YouGov de 6 000 ménages, rapport publié en mai 2026</cite></div>
+   <div class="stat reveal"><b><span data-count="3.9" data-dec="1">3,9</span> Md€</b><p>dépensés en viande et volaille pour la consommation à domicile en 2025, au prix moyen de 11,84 €/kg (+4 %).</p><cite>VLAM, mai 2026</cite></div>
+   <div class="stat reveal"><b><span data-count="36.3" data-dec="1">36,3</span> %</b><p>des ménages belges sont composés d'une personne au 1er janvier 2025 (37,7 % en Wallonie). Taille moyenne : 2,25 personnes.</p><cite>Statbel, 12 juin 2025</cite></div>
+  </div>
+  <div class="grid g2 mt">
+   <div class="card reveal">
+    <h3>Plats et préparations de viande : ça monte</h3>
+    <p class="small">Consommation à domicile, kg par personne et par an (Belgique)</p>
+    <div class="bars" id="trend"></div>
+    <cite>VLAM / YouGov, cités par Terre Fermière (2024) et rapport VLAM 2025 (mai 2026). Le VLAM note en 2025 que les préparations et plats cuisinés à base de viande continuent de progresser, et que le haché gagne en popularité.</cite>
+   </div>
+   <div class="card reveal">
+    <h3>Ce qu'on sait d'autre</h3>
+    <ul class="facts">
+     <li>Le boulet est un plat populaire reconnu par la fiche « Le boulet à la liégeoise » de Patrimoine vivant Wallonie-Bruxelles, qui donne aussi le poids traditionnel d'environ 120 g par boulet.</li>
+     <li>Environ trois quarts de la consommation de viande se fait à domicile, le reste hors foyer, en take-away ou en livraison (VLAM, Consumptietracker, 2025).</li>
+     <li>La consommation apparente de viande était de 79,6 kg équivalent carcasse par habitant en 2023, en baisse de 1,5 % (Statbel, 11 juin 2024).</li>
+     <li>Selon des distributeurs interrogés par Gondola (fin 2024), le rayon des plats préparés progresse en valeur et en volume, porté par les petits ménages.</li>
+    </ul>
+   </div>
+  </div>
+  <div class="card reveal mt">
+   <h3>Concurrence : les familles d'acteurs</h3>
+   <div class="comp">
+    <div><b>Boucheries-traiteurs</b><small>boulettes maison, recette fixe</small></div>
+    <div><b>Plats préparés en grande surface</b><small>boulettes sauce, frais ou surgelé</small></div>
+    <div><b>Friteries et brasseries</b><small>boulets à consommer sur place ou à emporter</small></div>
+    <div><b>Box repas en ligne</b><small>kits à cuisiner livrés par abonnement</small></div>
+   </div>
+   <p class="note"><span class="todo">À étudier</span> : taille du marché belge de la boulette et des plats préparés en valeur, part de la Wallonie et du Hainaut, prix pratiqués par les concurrents, panier moyen des box repas, existence d'une offre de boulettes personnalisables. Aucun de ces chiffres n'a été trouvé dans une source publique fiable pendant cette recherche.</p>
+  </div>
+  <details class="src reveal"><summary>Sources de cette section</summary>
+   <ul>
+    <li>VLAM, <a href="https://www.vlaanderen.be/vlam/sites/default/files/publications/2026-05/VLAM-rapport%20-%20verbruik%20van%20vlees%20en%20gevogelte%20in%20Belgi%C3%AB%20in%202025.pdf">Vlees &amp; gevogelteverbruik in België in 2025</a>, mai 2026</li>
+    <li>Terre Fermière, <a href="https://www.terrefermiere.be/conso/hausse-de-la-consommation-a-domicile-de-viande-et-de-volaille-en-2024/">Hausse de la consommation à domicile de viande en 2024</a></li>
+    <li>Statbel, <a href="https://statbel.fgov.be/en/news/belgium-had-36-one-person-households-01-january-2025">Belgium had 36% one-person households on 01 January 2025</a>, 12 juin 2025</li>
+    <li>Statbel, <a href="https://statbel.fgov.be/fr/themes/agriculture-peche/bilans-dapprovisionnement">Bilans d'approvisionnement</a>, 11 juin 2024</li>
+    <li>Gondola, <a href="https://www.gondola.be/fr/news/les-plats-prepares-et-les-retailers-sont-prets-pour-2025">Les plats préparés (et les retailers) sont prêts pour 2025</a></li>
+    <li>Patrimoine vivant Wallonie-Bruxelles, <a href="https://www.patrimoinevivantwalloniebruxelles.be/patrimoines/pratiques/fiche_pratiques/?n=8">Le boulet à la liégeoise</a></li>
+   </ul>
+  </details>
+ </div>
+</section>
+
+<!-- 7 PRODUCTION -->
+<section id="production" class="sec">
+ <div class="wrap">
+  <div class="sh"><span class="num">07</span><h2>Production</h2></div>
+  <p class="intro">Un opérateur seul, en marche en avant : zone crue d'un côté, zone cuite de l'autre. Les points critiques (CCP) sont en rouge.</p>
+  <div class="flow reveal" id="flow"></div>
+  <div class="grid g3 mt">
+   <div class="card reveal"><h3>Lot type</h3><p>8 à 12 kg de farce, soit <strong>65 à 100 boulettes de 120 g</strong>, plus les sauces du jour.</p></div>
+   <div class="card reveal"><h3>Four 6 niveaux</h3><p><span class="hyp">Hypothèse</span> 16 à 24 boulettes par plaque GN 1/1, soit <strong>96 à 144 boulettes par fournée</strong>.</p></div>
+   <div class="card reveal"><h3>Dosage au gramme</h3><p>La balance fait foi. La doseuse accélère, mais on contrôle les 3 premières puis 1 sur 10. Tolérance interne <span class="hyp">Hypothèse</span> 2 à 3 g.</p></div>
+  </div>
+  <div class="card reveal mt">
+   <h3>Semaine type en solo</h3>
+   <div class="week">
+    <div><b>Lun</b><small>Réception, sauces, lots standard</small></div>
+    <div><b>Mar</b><small>Commandes perso</small></div>
+    <div><b>Mer</b><small>Commandes perso</small></div>
+    <div><b>Jeu</b><small>Finitions, étiquetage</small></div>
+    <div><b>Ven</b><small>Livraisons, retraits</small></div>
+   </div>
+   <p class="small">Planning indicatif, tiré du dossier production. Il suppose une DLC courte : dès que le standard passe en surgelé ou qu'une étude valide une DLC plus longue, la production peut se grouper sur deux jours.</p>
+  </div>
+ </div>
+</section>
+
+<!-- 8 AFSCA -->
+<section id="afsca" class="sec alt">
+ <div class="wrap">
+  <div class="sh"><span class="num">08</span><h2>Réglementation AFSCA / HACCP</h2></div>
+  <div class="grid g4">
+   <div class="temp reveal"><b>70 °C</b><span>à cœur, 2 min</span><p>Cible de cuisson retenue, plus prudente que le plancher de 60 °C des préparations chaudes, surtout si le haché contient de la volaille.</p></div>
+   <div class="temp reveal"><b>60 → 10 °C</b><span>en 2 h maximum</span><p>Refroidissement rapide (CCP 7 du guide G-044, fiche AFSCA « Températures »).</p></div>
+   <div class="temp reveal"><b>4 jours</b><span>DLC max. sans étude</span><p>Solution acceptable pour le frais selon le G-044. Toute DLC plus longue, ou une DDM en surgelé, demande une étude de durée de vie.</p></div>
+   <div class="temp reveal"><b>1.2.1</b><span>agrément</span><p>Vendre à une enseigne, ce qui sort du B2C pur, relève en principe de l'agrément pour produits à base de viande, avec marque d'identification.</p></div>
+  </div>
+  <div class="grid g2 mt">
+   <div class="card reveal"><h3>Vente directe</h3><p>Livraison et click-and-collect : enregistrement ou autorisation AFSCA, plus un système d'autocontrôle (guide G-044). Les assouplissements HACCP couvrent le B2B jusqu'à 30 % du chiffre d'affaires dans un rayon de 80 km.</p></div>
+   <div class="card reveal"><h3>À faire avant d'aménager</h3><ul class="ticks"><li>Faire confirmer le statut exact par l'AFSCA (fiche d'activité)</li><li>Étiquetage : allergènes, lot, DLC, poids net cuit</li><li>Sacs sous vide barrière, contact alimentaire</li><li>Analyses microbiologiques, dont <i>Listeria</i></li></ul></div>
+  </div>
+  <p class="note reveal">Aucune certification (IFS, halal, bio ou autre) n'est obtenue ni revendiquée. Ce résumé n'est pas un avis juridique.</p>
+ </div>
+</section>
+
+<!-- 9 EQUIPE -->
+<section id="equipe" class="sec">
+ <div class="wrap">
+  <div class="sh"><span class="num">09</span><h2>Équipe</h2></div>
+  <div class="grid g2">
+   <div class="card founder reveal"><div class="av big">FD</div><div><h3>Florent Dramaix, fondateur</h3><p>Porte le projet et fait tout lui-même au départ : production, vente, livraison. Il a défini le concept, le process et l'appli.</p></div></div>
+   <div class="card reveal"><h3>Autour de lui</h3>
+    <ul class="ticks"><li>Comptable et conseil juridique (création de SRL) : à choisir</li><li>Laboratoire pour les analyses et la DLC : à choisir</li><li>Studio web si le configurateur sur mesure est retenu</li><li>Premier renfort en production quand le roulage à la main bloque</li></ul>
+    <p class="small"><span class="hyp">Hypothèse</span> Le moment du premier recrutement dépend du volume. Il n'est pas chiffré dans le budget.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- 10 BUDGET -->
+<section id="budget" class="sec alt">
+ <div class="wrap">
+  <div class="sh"><span class="num">10</span><h2>Budget de lancement</h2></div>
+  <p class="intro">Fourchettes en euros HTVA, issues de la recherche du 18 novembre 2026 : tarifs publics et fiches produits, sinon estimations. Recalculé pour un calibre de <strong>120 g</strong> au lieu des 90 g de la première version.</p>
+  <div class="switch reveal" role="tablist" aria-label="Scénario">
+   <button role="tab" aria-selected="true" data-sc="bas" class="on">Scénario bas</button>
+   <button role="tab" aria-selected="false" data-sc="haut">Scénario haut</button>
+  </div>
+  <div class="grid g2b">
+   <div class="card reveal">
+    <div id="sc-desc" class="scdesc"></div>
+    <div class="chart" id="chart" role="img" aria-label="Graphique des fourchettes de budget par poste"></div>
+    <div class="legend"><span><i class="lmin"></i>minimum</span><span><i class="lmax"></i>jusqu'au maximum</span><span><i class="lchg"></i>poste qui dépend du calibre</span></div>
+   </div>
+   <div class="stack">
+    <div class="card dark total reveal"><span class="lbl">Total cœur de lancement</span><b id="tot">≈ 31 000 – 79 000 €</b><span class="small light" id="tot-old"></span></div>
+    <div class="card reveal" id="ifs-card"><span class="lbl">En plus, si on vise une enseigne</span>
+     <p><strong>Préparation IFS</strong> : total haut porté à environ <strong>129 000 – 307 000 €</strong>. Le référencement en enseigne n'a pas de tarif public belge : une réserve commerciale de 5 000 à 20 000 € est une estimation non sourcée.</p></div>
+    <div class="card reveal"><span class="lbl">Pas dans les totaux</span>
+     <p class="small">Salaire et cotisations du fondateur, loyer après le 3e mois, énergie, TVA, stock au-delà du premier mois, formeuse (option future), frais de référencement. Aides wallonnes possibles (prime à l'investissement à partir de 100 000 €, prêt de Wallonie Entreprendre) non déduites.</p></div>
+   </div>
+  </div>
+
+  <div class="card reveal mt">
+   <h3>Ce qui change avec 120 g</h3>
+   <table class="tbl">
+    <thead><tr><th>Ligne</th><th>Version 90 g</th><th>Version 120 g</th><th>Statut</th></tr></thead>
+    <tbody>
+     <tr><td>Farce par mois, bas (2 000 boulettes)</td><td>180 kg</td><td><b>240 kg crus</b></td><td><span class="pill go">Recalculé</span></td></tr>
+     <tr><td>Farce par mois, haut (6 000 boulettes)</td><td>540 kg</td><td><b>720 kg crus</b></td><td><span class="pill go">Recalculé</span></td></tr>
+     <tr><td>Matière première du 1er mois, bas</td><td>1 000 – 2 000 €</td><td><b>≈ 1 300 – 2 700 €</b></td><td><span class="pill go">Recalculé ×1,33</span></td></tr>
+     <tr><td>Matière première du 1er mois, haut</td><td>3 200 – 6 500 €</td><td><b>≈ 4 300 – 8 700 €</b></td><td><span class="pill go">Recalculé ×1,33</span></td></tr>
+     <tr><td>Totaux</td><td>31–78 k€ / 122–280 k€</td><td><b>31–79 k€ / 123–282 k€</b></td><td><span class="pill go">Recalculé</span></td></tr>
+     <tr><td>Format des sachets sous vide (200 × 300 mm)</td><td colspan="2">Même nombre de pièces, mais des boulettes plus grosses</td><td><span class="todo">À vérifier</span></td></tr>
+     <tr><td>Capacité de la cellule de refroidissement et des chambres froides</td><td colspan="2">Environ 33 % de masse en plus à refroidir</td><td><span class="todo">À vérifier</span></td></tr>
+     <tr><td>Nombre de caisses isothermes</td><td colspan="2">Volume livré plus grand</td><td><span class="todo">À vérifier</span></td></tr>
+    </tbody>
+   </table>
+   <p class="small">Le recalcul garde la méthode d'origine : coût matière proportionnel au poids, environ 80 % de viande, prix atelier estimés à partir des cotations officielles de novembre 2026. Le nombre de boulettes par mois (2 000 et 6 000) est une <span class="hyp">Hypothèse</span> de volume.</p>
+  </div>
+
+  <div class="card reveal mt sim">
+   <h3>Simulateur de chiffre d'affaires <span class="tagx">Exemple illustratif à valider</span></h3>
+   <p class="small">Aucun prix de vente n'est fixé. Entre un prix <em>hypothétique</em> pour voir l'ordre de grandeur. Ce n'est ni une prévision ni un objectif.</p>
+   <div class="simrow">
+    <label>Prix test par boulette (€ TTC)<input type="number" id="px" min="0" step="0.1" placeholder="à toi de tester"></label>
+    <label>Boulettes par semaine<input type="range" id="vol" min="100" max="2000" step="50" value="500"><output id="volo">500</output></label>
+   </div>
+   <div class="simout"><div><span>Par mois (≈ 4,33 semaines)</span><b id="ca-m">—</b></div><div><span>Par an</span><b id="ca-y">—</b></div></div>
+  </div>
+ </div>
+</section>
+
+<!-- 11 JALONS -->
+<section id="jalons" class="sec">
+ <div class="wrap">
+  <div class="sh"><span class="num">11</span><h2>Plan de lancement par jalons</h2></div>
+  <p class="intro">Ordre des étapes, sans date fixée : chaque jalon s'ouvre quand le précédent est validé.</p>
+  <ol class="timeline">
+   <li class="done reveal"><span class="dot">✓</span><div><b>J0 · Concept et appli</b><p>Identité Laboulette, site de démo et appli installable en ligne.</p></div></li>
+   <li class="reveal"><span class="dot">1</span><div><b>J1 · Recettes et essais 120 g</b><p>Figer les signatures et les sauces, peser le poids cuit, tester les allergènes et les liants.</p></div></li>
+   <li class="reveal"><span class="dot">2</span><div><b>J2 · Société, local, AFSCA</b><p>Créer la SRL, trouver le local, faire confirmer le statut AFSCA avant les travaux, assurances.</p></div></li>
+   <li class="reveal"><span class="dot">3</span><div><b>J3 · Équipement et autocontrôle</b><p>Matériel, plan HACCP, premières analyses, étiquettes, emballages.</p></div></li>
+   <li class="reveal"><span class="dot">4</span><div><b>J4 · Lancement local</b><p>Livraison et click-and-collect dans le Borinage, avec un petit nombre de recettes.</p></div></li>
+   <li class="reveal"><span class="dot">5</span><div><b>J5 · Box et offre pro</b><p>Box repas ou abonnement, premiers clients professionnels, étude de durée de vie.</p></div></li>
+   <li class="reveal"><span class="dot">6</span><div><b>J6 · Test en magasin</b><p>Agrément adapté, codes GS1, éventuellement IFS, puis test régional avec une enseigne exclusive.</p></div></li>
+  </ol>
+ </div>
+</section>
+
+<!-- 12 RISQUES -->
+<section id="risques" class="sec alt">
+ <div class="wrap">
+  <div class="sh"><span class="num">12</span><h2>Risques</h2></div>
+  <div class="risks">
+   <div class="risk hi reveal"><b>Sécurité alimentaire</b><p>Cuisson, refroidissement, <i>Listeria</i>. Parade : CCP suivis et enregistrés, DLC courte tant qu'aucune étude n'est faite.</p><span>Impact fort</span></div>
+   <div class="risk hi reveal"><b>Capacité en solo</b><p>Le roulage à la main plafonne les volumes. Parade : lots standard, renfort, formeuse plus tard.</p><span>Impact fort</span></div>
+   <div class="risk md reveal"><b>Personnalisation complexe</b><p>Chaque commande sur mesure rallonge la pesée et le nettoyage. Parade : options limitées, regroupement par lots.</p><span>Impact moyen</span></div>
+   <div class="risk hi reveal"><b>Dépendance à une enseigne</b><p>Exclusivité, conditions commerciales non publiques, besoins de certification. Parade : canaux directs d'abord.</p><span>Impact fort</span></div>
+   <div class="risk md reveal"><b>Prix de la viande</b><p>Le bœuf et le veau montent (VLAM 2025). Parade : recettes porc-bœuf, revue régulière des prix.</p><span>Impact moyen</span></div>
+   <div class="risk md reveal"><b>Local et travaux</b><p>Premier écart du budget : de 9 000 € à plus de 90 000 €. Parade : viser une ancienne boucherie.</p><span>Impact moyen</span></div>
+  </div>
+ </div>
+</section>
+
+<!-- 13 SUITE -->
+<section id="suite" class="sec">
+ <div class="wrap">
+  <div class="sh"><span class="num">13</span><h2>Prochaines étapes</h2></div>
+  <div class="next">
+   <div class="reveal"><span>1</span><p>Lancer une enquête et une prévente test via l'appli pour mesurer la demande et le prix acceptable.</p></div>
+   <div class="reveal"><span>2</span><p>Demander à l'AFSCA de confirmer le statut (vente directe, puis agrément 1.2.1).</p></div>
+   <div class="reveal"><span>3</span><p>Essais en cuisine : poids cuit réel, format des sachets, fiches allergènes des six signatures.</p></div>
+   <div class="reveal"><span>4</span><p>Demander des devis belges pour les gros postes : local, froid, four, cellule.</p></div>
+   <div class="reveal"><span>5</span><p>Fixer le tarif de l'option producteur local et choisir les producteurs.</p></div>
+   <div class="reveal"><span>6</span><p>Étudier le marché : taille, prix concurrents, box repas, puis construire le prévisionnel financier.</p></div>
+  </div>
+  <div class="cta reveal">
+   <h3>Fais pas le malin : on avance une boulette à la fois.</h3>
+   <a class="btn alt" href="../app/">Composer ma boulette</a> <a class="btn ghost light" href="../">Voir le site</a>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <img src="../logo/couleur-fond-fonce/laboulette_horizontal_couleur-fond-fonce.svg" alt="Laboulette" class="flogo">
+  <p class="small light"><a href="../">Le site</a> · <a href="../app/">L'appli</a> · <a href="../app/installer.html">Installer</a> · <a href="#" onclick="window.print();return false">Imprimer / PDF</a></p>
+  <div class="proto">Document de travail, prototype. Ce n'est ni un devis, ni un plan financier, ni un avis juridique ou fiscal. Aucun prix de vente, aucune certification, aucune enseigne et aucun producteur ne sont fixés. Chiffres de marché sourcés et datés ; montants de budget issus d'une recherche du 18 novembre 2026, à confirmer par des devis.</div>
+ </div>
+</footer>
+<script src="bp.js"></script>
+</body>
+</html>
