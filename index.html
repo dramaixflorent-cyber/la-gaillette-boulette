@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>La Gaillette Boulette — Ton haché au gramme près. Ta boulette.</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="logo/icone/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="logo/icone/apple-touch-icon.png">
 <meta name="description" content="Démo : boulettes façon boraine, haché dosé au gramme près, sauces maison. Prototype sans commande ni prix.">
 <style>
 :root{--dark:#2a1f1a;--coal:#1c1714;--cream:#f7ebd7;--red:#903c30;--gold:#c49a62;--soft:#fffaf1;--line:#e0ceb4}
@@ -86,11 +89,11 @@ footer p{max-width:720px}
 footer .small{color:#d9c7ad}
 .hidden{display:none!important}
 @media(max-width:900px){.steps{grid-template-columns:1fr 1fr}.cards3{grid-template-columns:1fr}}
-@media(max-width:760px){.hero,.config,.pack{grid-template-columns:1fr}.hero{padding-top:30px}.hero-art{min-height:240px}.steps{grid-template-columns:1fr}.sauces{grid-template-columns:1fr 1fr}nav a{margin-left:10px;font-size:13px}.brand{font-size:19px}aside.panel{position:static}.qty{grid-template-columns:1fr}.meat{grid-template-columns:80px 1fr 82px;}.meat .pct{grid-column:2/4;text-align:left;margin-top:-6px}}
+@media(max-width:760px){.brand img{height:34px!important}.hero,.config,.pack{grid-template-columns:1fr}.hero{padding-top:30px}.hero-art{min-height:240px}.steps{grid-template-columns:1fr}.sauces{grid-template-columns:1fr 1fr}nav a{margin-left:10px;font-size:13px}.brand{font-size:19px}aside.panel{position:static}.qty{grid-template-columns:1fr}.meat{grid-template-columns:80px 1fr 82px;}.meat .pct{grid-column:2/4;text-align:left;margin-top:-6px}}
 </style>
 </head>
 <body>
-<header><a class="brand" href="#"><span class="coal" aria-hidden="true"></span>La Gaillette Boulette</a><nav><a href="#composer">Composer</a><a href="#emballage">L'emballage</a><a href="#recuperer">Récupérer</a><a href="#sauces">Sauces</a></nav></header>
+<header><a class="brand" href="#" aria-label="La Gaillette Boulette — accueil"><img src="logo/couleur-fond-fonce/la-gaillette-boulette_horizontal_couleur-fond-fonce.svg" alt="La Gaillette Boulette" height="46" style="height:46px;width:auto;display:block"></a><nav><a href="#composer">Composer</a><a href="#emballage">L'emballage</a><a href="#recuperer">Récupérer</a><a href="#sauces">Sauces</a></nav></header>
 <main>
 <div class="hero">
   <div>
@@ -281,8 +284,9 @@ footer .small{color:#d9c7ad}
 </main>
 
 <footer>
-  <div class="brand"><span class="coal" aria-hidden="true"></span>La Gaillette Boulette</div>
+  <img src="logo/couleur-fond-fonce/la-gaillette-boulette_horizontal_couleur-fond-fonce.svg" alt="La Gaillette Boulette" style="height:56px;width:auto;display:block;margin-bottom:8px">
   <p>Une idée née dans le Borinage, au pays des terrils et des gaillettes. Du goût, du caractère et pas de chichis.</p>
+  <p class="small"><a href="la-gaillette-logos.zip" download style="color:var(--gold)">Télécharger les logos (zip)</a></p>
   <p class="small">Démo conceptuelle non commerciale. Aucun prix, aucune commande, aucun paiement. Recettes, compositions, allergènes, conservation, partenariats, producteurs et certifications (dont halal, non certifiée) à valider avant lancement.</p>
 </footer>
 <div id="toast" role="status"></div>

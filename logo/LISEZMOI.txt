@@ -1,0 +1,19 @@
+LA GAILLETTE BOULETTE — LOGOS
+
+Concept : une gaillette (le gros charbon rond du Borinage, qui fait aussi une boulette) se lève entre deux terrils,
+avec un clin d'œil, un sourire en coin et un éclat doré malicieux. Fais pas le malin.
+
+Dossiers
+  couleur/              logo couleur, pour fond clair (crème/blanc)
+  couleur-fond-fonce/   logo couleur, texte crème et or, pour fond foncé (ex. en-tête du site)
+  noir/                 monochrome noir (détails évidés, vraiment transparents)
+  blanc/                monochrome blanc, pour fond foncé
+  icone/                favicon.svg, favicon.ico (16/32/48), favicon 16 et 32 px, apple-touch-icon 180 px, icônes 192 et 512 px, icone.pdf
+
+Chaque dossier de variante contient horizontal, vertical et symbole, en :
+  .svg (vectoriel, texte vectorisé en chemins), _2000px.png et _512px.png (fond transparent), .pdf (vectoriel)
+
+Palette : brun #30221c · crème #f7ebd7 · rouge #903c30 · or #c49a62
+Typographies (licence SIL Open Font License, vectorisées dans les fichiers) :
+  « LA GAILLETTE » : Alfa Slab One — « BOULETTE » : Archivo Black
+Zone de protection conseillée : la hauteur de l'éclat doré autour du logo. Taille minimale conseillée du logo horizontal : 120 px de large.
