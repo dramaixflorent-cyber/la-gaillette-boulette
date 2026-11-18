@@ -1,7 +1,14 @@
-LA GAILLETTE BOULETTE — LOGOS (v2 « jeune & punchy »)
+LABOULETTE — LOGOS
 
-Concept : la gaillette (le gros charbon rond du Borinage, qui est aussi une boulette) file à toute vitesse et rebondit
-au-dessus de deux mini-terrils, avec un clin d'œil, un grand sourire et une étincelle. Bord braise orange : c'est du charbon qui chauffe.
+Anciennement « La Gaillette ». Le nom de la marque est désormais Laboulette, en un seul mot.
+
+Concept : la boule ronde (la gaillette, le gros charbon du Borinage, qui est aussi une boulette)
+file à toute vitesse au-dessus de deux mini-terrils, avec un clin d'œil, un grand sourire et une étincelle.
+Bord braise orange : c'est du charbon qui chauffe.
+
+Le mot se lit LABOULETTE.
+  « LABOU » : Lilita One, légèrement penchée.
+  « LETTE » : Bungee, dans l'étiquette rouge (ou évidée en monochrome).
 
 Dossiers
   couleur/              logo couleur, pour fond clair
@@ -15,5 +22,5 @@ Chaque dossier de variante contient horizontal, vertical et symbole, en :
 
 Palette : charbon #161211 · crème #fff3e0 · rouge vif #e8392a · braise #ff8a1f · jaune #ffc83d
 Typographies (SIL Open Font License, vectorisées dans les fichiers) :
-  « LA GAILLETTE » : Lilita One (inclinée) — « BOULETTE » : Bungee, en étiquette
-Taille minimale conseillée du logo horizontal : 140 px de large. En dessous, utiliser le symbole seul.
+  Lilita One et Bungee.
+Taille minimale conseillée du logo horizontal : 160 px de large. En dessous, utiliser le symbole seul.

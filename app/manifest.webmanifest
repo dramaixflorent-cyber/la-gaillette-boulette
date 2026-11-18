@@ -1,0 +1,41 @@
+{
+  "id": "/la-gaillette-boulette/app/",
+  "name": "Laboulette",
+  "short_name": "Laboulette",
+  "description": "Compose ta boulette boraine, de A à Z. Prototype : pas de commande, pas de prix.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "/la-gaillette-boulette/app/",
+  "scope": "/la-gaillette-boulette/app/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#161211",
+  "theme_color": "#161211",
+  "categories": ["food", "lifestyle"],
+  "icons": [
+    {
+      "src": "/la-gaillette-boulette/app/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/la-gaillette-boulette/app/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/la-gaillette-boulette/app/icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/la-gaillette-boulette/app/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
