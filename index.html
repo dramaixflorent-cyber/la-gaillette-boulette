@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La Gaillette Boulette — Ton haché au gramme près. Ta boulette.</title>
+<meta name="description" content="Démo : boulettes façon boraine, haché dosé au gramme près, sauces maison. Prototype sans commande ni prix.">
+<style>
+:root{--dark:#2a1f1a;--coal:#1c1714;--cream:#f7ebd7;--red:#903c30;--gold:#c49a62;--soft:#fffaf1;--line:#e0ceb4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--dark);font:16px/1.45 system-ui,Arial,sans-serif}
+header{background:var(--coal);color:var(--cream);padding:14px 5%;display:flex;justify-content:space-between;align-items:center;gap:15px;position:sticky;top:0;z-index:10;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font:900 24px Georgia,serif;color:inherit;text-decoration:none}
+.coal{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#6b625c 0 12%,#2b2522 35%,#0e0b0a 75%);box-shadow:0 0 0 2px var(--gold);flex:none}
+nav a{color:inherit;text-decoration:none;margin-left:18px;font-size:15px}
+nav a:hover{color:var(--gold)}
+main{max-width:1160px;margin:auto;padding:0 22px}
+.hero{padding:60px 0 50px;display:grid;grid-template-columns:1.3fr 1fr;gap:35px;align-items:center}
+.eyebrow{text-transform:uppercase;letter-spacing:3px;color:var(--red);font-weight:800;font-size:12px}
+h1{font:900 clamp(42px,6.5vw,84px)/.98 Georgia,serif;margin:12px 0 20px}
+h2{font:900 36px Georgia,serif;margin:0 0 12px}
+.hero p{font-size:19px;line-height:1.5}
+.wink{font-size:14px!important;color:#6b5b4e;border-left:3px solid var(--gold);padding-left:10px}
+.hero-art{min-height:330px;border-radius:26px;background:radial-gradient(circle at 40% 35%,#b67a43 0 13%,transparent 14%),radial-gradient(circle at 65% 62%,#ad6b39 0 17%,transparent 18%),radial-gradient(circle at 42% 72%,#8b4c2b 0 15%,transparent 16%),radial-gradient(circle at 30% 55%,#3f7a3a 0 1.6%,transparent 1.8%),radial-gradient(circle at 58% 40%,#3f7a3a 0 1.4%,transparent 1.6%),radial-gradient(circle at 72% 48%,#b8452f 0 1.8%,transparent 2%),radial-gradient(ellipse at center,#74452e 0 50%,#3b281f 52% 70%,#1c1714 71%);box-shadow:0 15px 40px #38221740;position:relative}
+.hero-art:after{content:"RONDE COMME UNE GAILLETTE. MAIS ÇA, ÇA SE MANGE.";position:absolute;bottom:20px;left:20px;right:20px;text-align:center;color:#fff1d5;font-weight:900;letter-spacing:2px;font-size:13px}
+button,.btn{border:0;border-radius:8px;padding:13px 19px;background:var(--red);color:#fff;font:800 15px system-ui,Arial,sans-serif;cursor:pointer}
+button:hover{filter:brightness(1.1)}
+button:disabled{opacity:.45;cursor:not-allowed;filter:none}
+button.ghost{background:transparent;color:var(--dark);border:2px solid var(--dark)}
+section{padding:36px 0}
+.intro{background:#e9d9c1;border-radius:18px;padding:25px;margin-bottom:20px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step,.panel{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:22px}
+.step b{color:var(--red)}
+.step h3{margin:6px 0;font:800 20px Georgia,serif}
+.config{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:start}
+.block{border-top:1px dashed #d8c3a5;padding-top:20px;margin-top:20px}
+.block:first-child{border-top:0;margin-top:0;padding-top:0}
+.block h3{margin:0 0 4px;font:800 24px Georgia,serif;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#5d5550 0 10%,#2b2522 40%,#0e0b0a 80%);color:#fff;font:900 15px system-ui;flex:none}
+.tease{color:var(--red);font-style:italic;font-size:14px;margin:2px 0 8px}
+.block h4{margin:16px 0 2px;font-size:16px;display:flex;justify-content:space-between;gap:10px}
+.counter{font-weight:700;font-size:13px;color:#6b5b4e}
+.choices{display:flex;flex-wrap:wrap;gap:9px;margin:10px 0 6px}
+.choice{background:#f2e5d3;color:var(--dark);border:2px solid transparent;padding:9px 13px;font-weight:700}
+.choice.selected{background:var(--dark);color:#fff;border-color:var(--gold)}
+.choice.multi.selected:before{content:"✓ "}
+.choice.off{opacity:.4;text-decoration:line-through}
+.choice small{display:block;font-weight:500;font-size:11px;opacity:.8}
+.meat{display:grid;grid-template-columns:110px 1fr 96px 52px;gap:10px;align-items:center;margin:8px 0}
+.meat label{font-weight:700}
+.meat input[type=range]{width:100%;accent-color:var(--red)}
+.meat .pct{font-size:13px;color:#6b5b4e;text-align:right}
+input[type=number],select{padding:9px;width:100%;border:1px solid #c8b39a;border-radius:8px;background:#fff;font:inherit}
+.small{color:#6b5b4e;font-size:13px}
+.total{font-weight:800;margin:10px 0}
+.bar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:#eadcc6;margin:6px 0}
+.bar span{display:block;height:100%}
+.ok{color:#2f6b2f}.ko{color:var(--red)}
+.summary{background:#e8d6bd;border-radius:12px;padding:20px}
+aside.panel{position:sticky;top:84px}
+.recap{white-space:pre-line;line-height:1.6;font-size:15px;background:#fffaf1;border-radius:10px;padding:14px;margin:10px 0}
+.notice{background:#fff1d4;border-left:4px solid #b97a26;padding:12px;margin-top:12px;font-size:13px}
+.alert{background:#fbe3dc;border-left:4px solid var(--red);padding:10px 12px;margin:8px 0;font-size:14px}
+.tip{background:#eef3e4;border-left:4px solid #6c8b3c;padding:10px 12px;margin:8px 0;font-size:14px}
+.local{display:flex;gap:12px;align-items:flex-start;background:#fffaf1;border:2px dashed var(--gold);border-radius:12px;padding:14px;cursor:pointer}
+.local input{width:20px;height:20px;accent-color:var(--red);margin-top:3px;flex:none}
+.badge{display:inline-block;background:var(--gold);color:var(--coal);font-size:11px;font-weight:900;letter-spacing:1px;text-transform:uppercase;border-radius:20px;padding:3px 9px;margin-left:6px;vertical-align:middle}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140px);background:var(--coal);color:var(--cream);padding:12px 18px;border-radius:10px;font-weight:700;transition:transform .25s;z-index:20;max-width:90vw;text-align:center}
+#toast.show{transform:translateX(-50%) translateY(0)}
+.toggles{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}
+.toggles label{font-weight:600;display:flex;gap:8px;align-items:center;cursor:pointer}
+.toggles input{width:18px;height:18px;accent-color:var(--red)}
+.qty{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:end}
+.qty label{font-weight:700;display:block;margin-bottom:6px}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cards3 .step p{margin:6px 0 0}
+.pack{display:grid;grid-template-columns:1fr 1.3fr;gap:20px;align-items:center}
+.pack-art{min-height:240px;border-radius:20px;background:linear-gradient(135deg,#c8a477,#a98157);position:relative;box-shadow:0 12px 30px #38221730;overflow:hidden}
+.pack-art:before{content:"";position:absolute;inset:18% 14%;background:#e9d4b3;border-radius:6px;box-shadow:inset 0 0 0 3px #2a1f1a}
+.pack-art:after{content:"LA GAILLETTE BOULETTE";position:absolute;left:0;right:0;top:44%;text-align:center;font:900 20px Georgia,serif;color:#2a1f1a;letter-spacing:1px}
+.sauces{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.sauce{padding:18px;background:var(--soft);border-radius:14px;border-top:4px solid var(--red)}
+footer{background:var(--coal);color:var(--cream);padding:35px 5%;margin-top:45px}
+footer p{max-width:720px}
+footer .small{color:#d9c7ad}
+.hidden{display:none!important}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}.cards3{grid-template-columns:1fr}}
+@media(max-width:760px){.hero,.config,.pack{grid-template-columns:1fr}.hero{padding-top:30px}.hero-art{min-height:240px}.steps{grid-template-columns:1fr}.sauces{grid-template-columns:1fr 1fr}nav a{margin-left:10px;font-size:13px}.brand{font-size:19px}aside.panel{position:static}.qty{grid-template-columns:1fr}.meat{grid-template-columns:80px 1fr 82px;}.meat .pct{grid-column:2/4;text-align:left;margin-top:-6px}}
+</style>
+</head>
+<body>
+<header><a class="brand" href="#"><span class="coal" aria-hidden="true"></span>La Gaillette Boulette</a><nav><a href="#composer">Composer</a><a href="#emballage">L'emballage</a><a href="#recuperer">Récupérer</a><a href="#sauces">Sauces</a></nav></header>
+<main>
+<div class="hero">
+  <div>
+    <div class="eyebrow">Maison artisanale • Esprit borain • Démo</div>
+    <h1>Fais pas l'boulet.<br>Choisis-le.</h1>
+    <p>Ton haché, au gramme près. Ce que tu mets dedans. Ta sauce. Ta boulette. Des boulettes généreuses, dorées, bien cuites et prêtes à réchauffer. Chez nous, on rigole… mais jamais avec le goût.</p>
+    <p class="wink">Au Borinage, une gaillette, c'est un morceau de charbon bien rond. La nôtre est ronde aussi, mais elle se mange.</p>
+    <a class="btn" href="#composer" style="display:inline-block;text-decoration:none">Je compose mes boulettes</a>
+  </div>
+  <div class="hero-art" role="img" aria-label="Illustration stylisée de boulettes aux herbes dans une assiette"></div>
+</div>
+
+<section id="concept">
+  <div class="intro">
+    <h2>La bonne boulette, c'est la tienne.</h2>
+    <p>Viande ou végétale, bœuf, porc, veau, agneau ou volaille dosés au gramme près, oignons ou échalotes, thym ou ciboulette, paprika ou muscade : tu décides de tout, du haché jusqu'à la sauce. Pour les particuliers, le sachet de deux reste notre signature. Les pros ont leurs grands formats, avec la sauce en sachets séparés.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><b>01 / LE HACHÉ</b><h3>Au gramme près</h3>Tu doses tes viandes par pas de 50 g. On calcule les pourcentages, toi tu salives.</div>
+    <div class="step"><b>02 / LA TRADITION</b><h3>Un seul calibre</h3>La vraie, la traditionnelle, taille ration normale. On touche pas à ce qui marche.</div>
+    <div class="step"><b>03 / LE DEDANS</b><h3>Tes garnitures</h3>Oignons, ail, persil, poivrons confits, herbes, épices… dosés avec goût.</div>
+    <div class="step"><b>04 / LE PLAISIR</b><h3>Ta sauce</h3>Une des cinq classiques mijotées… ou sans. C'est toi qui vois.</div>
+  </div>
+</section>
+
+<section id="composer">
+  <div class="eyebrow">Configurateur de démonstration</div>
+  <h2>Compose ta boulette.</h2>
+  <p class="small">Dix étapes, zéro chichi. Le récap se met à jour tout seul, à droite (ou en bas sur ton téléphone).</p>
+  <div class="config">
+    <div class="panel">
+
+      <div class="block">
+        <h3><span class="num">1</span>Pour qui ?</h3>
+        <p class="tease">Particulier ou pro : on adapte les formats, pas la qualité.</p>
+        <div class="choices single" data-group="audience"></div>
+      </div>
+
+      <div class="block">
+        <h3><span class="num">2</span>Ta base</h3>
+        <p class="tease">Viande ou végétale. Les deux sont bonnes, fais pas le malin.</p>
+        <div class="choices single" data-group="base"></div>
+      </div>
+
+      <div class="block">
+        <h3><span class="num">3</span>Ton haché, au gramme près</h3>
+        <p class="tease" id="hacheTease"></p>
+        <div id="presetBox"><p class="small" style="margin:4px 0 0">Raccourcis (tu peux tout retoucher après) :</p><div class="choices single" data-group="preset"></div></div>
+        <div id="meats"></div>
+        <div class="bar" id="bar" aria-hidden="true"></div>
+        <div class="total" id="meatTotal"></div>
+        <div id="meatMsg"></div>
+        <p class="small" id="limitsInfo"></p>
+        <label class="local" for="local" id="localBox">
+          <input type="checkbox" id="local">
+          <span><b>Producteur local</b><span class="badge">supplément</span><br>
+          <span class="small">Des viandes issues de fermes du coin, pour une boulette qui connaît son terroir. Producteurs en cours de sélection. <b>Tarif à définir.</b></span></span>
+        </label>
+        <div class="notice">Gamme halal : envisagée, mais non disponible ni certifiée dans cette démonstration. Les compositions sont indicatives et devront être validées en production.</div>
+      </div>
+
+      <div class="block">
+        <div class="notice" style="font-size:15px;margin-top:0"><b>Un seul calibre : la vraie, la traditionnelle.</b> Une boulette de taille ration normale, comme chez mémé. Petite, grosse, XXL ? Fais pas le malin : la boulette, elle a déjà la bonne taille depuis toujours.</div>
+      </div>
+
+      <div class="block">
+        <h3><span class="num">4</span>Ce que tu mets dedans</h3>
+        <p class="tease">Les classiques de la boulette. Coche ce que tu veux, décoche ce que tu boudes.</p>
+        <div class="toggles">
+          <label><input type="checkbox" id="noEgg"> Sans œuf</label>
+          <label><input type="checkbox" id="noGluten"> Sans gluten</label>
+        </div>
+        <div class="choices multi" data-group="garnish"></div>
+        <div id="garnishMsg"></div>
+      </div>
+
+      <div class="block">
+        <h3><span class="num">5</span>Tes herbes</h3>
+        <p class="tease">Jusqu'à 3. Au-delà, c'est plus une boulette, c'est une pelouse.</p>
+        <h4><span>Herbes</span><span class="counter" id="herbsCount"></span></h4>
+        <div class="choices multi" data-group="herbs"></div>
+        <p class="small">Le persil classique est déjà à l'étape 5. Ici, c'est le persil plat, pour les puristes. Le prends pas deux fois pour rien, fais pas le malin.</p>
+        <div id="herbsMsg"></div>
+      </div>
+
+      <div class="block">
+        <h3><span class="num">6</span>Tes épices</h3>
+        <p class="tease">Jusqu'à 3. On veut du caractère, pas un feu de cheminée.</p>
+        <h4><span>Épices</span><span class="counter" id="spicesCount"></span></h4>
+        <div class="choices multi" data-group="spices"></div>
+        <h4><span>Dosage</span></h4>
+        <div class="choices single" data-group="dose"></div>
+        <div id="spicesMsg"></div>
+      </div>
+
+      <div class="block">
+        <h3><span class="num">7</span>La sauce, au menu</h3>
+        <p class="tease">Mijotée maison, recette de la maison. Ou sans, si t'es du genre à manger tes frites sans mayo.</p>
+        <div class="choices single" data-group="sauce"></div>
+        <div id="sauceMsg"></div>
+      </div>
+
+      <div class="block">
+        <h3><span class="num">8</span>Combien ?</h3>
+        <p class="tease" id="qtyTease"></p>
+        <div class="choices single" data-group="qty"></div>
+        <div class="qty">
+          <div><label for="packs" id="packsLabel">Nombre de sachets</label><input type="number" id="packs" min="1" max="50" value="3"></div>
+          <div id="proSauceBox" class="hidden"><div class="toggles"><label><input type="checkbox" id="proSauce" checked> Sauce en sachets séparés</label></div></div>
+        </div>
+        <div id="qtyMsg"></div>
+      </div>
+
+      <div class="block">
+        <h3><span class="num">9</span>Comment tu la récupères ?</h3>
+        <p class="tease">Chez toi, à emporter ou au rayon. Mais tu la récupères, hein, on la garde pas pour nous.</p>
+        <div class="choices single" data-group="pickup"></div>
+        <div id="pickupMsg"></div>
+      </div>
+
+      <div class="block">
+        <h3><span class="num">10</span>On vérifie et on copie</h3>
+        <p class="tease">Relis ton récap. Si c'est bon, copie-le. Si c'est pas bon, fais pas le malin et corrige.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="ghost" id="reset" type="button">Tout remettre à zéro</button>
+          <button class="ghost" id="classic" type="button">La suggestion du chef</button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="panel">
+      <div class="summary">
+        <div class="eyebrow">Ta composition</div>
+        <h3 style="margin:6px 0 0;font:800 24px Georgia,serif" id="recapTitle">Ça sent déjà bon !</h3>
+        <div class="recap" id="recap" aria-live="polite"></div>
+        <div id="recapWarn"></div>
+        <button id="copy" type="button" style="width:100%">Copier ma composition</button>
+        <p class="small">Prototype interactif : aucune commande ni paiement n'est effectué. Les prix et disponibilités ne sont pas encore définis. Compositions et allergènes indicatifs, à valider en production.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="emballage">
+  <div class="eyebrow">Bien emballée, bien gardée</div>
+  <h2>L'emballage.</h2>
+  <div class="pack">
+    <div class="pack-art" role="img" aria-label="Illustration d'un étui en carton La Gaillette Boulette"></div>
+    <div class="cards3" style="grid-template-columns:1fr">
+      <div class="step"><b>LA POCHE SOUS VIDE</b><p>Tes boulettes voyagent dans une poche sous vide, bien serrées, comme des gaillettes dans le seau. Rien ne rentre, rien ne sort, le goût reste dedans.</p></div>
+      <div class="step"><b>LE BEL ÉTUI EN CARTON</b><p>La poche est glissée dans un étui en carton soigné. Assez joli pour le poser sur la table, assez solide pour le ramener sans casse.</p></div>
+      <div class="step"><b>FRAIS OU SURGELÉ : ON S'EN OCCUPE</b><p>Selon les produits et la logistique, tes boulettes sont conservées en frais ou en surgelé. C'est nous qui choisissons ce qui garde le mieux le goût, pas toi. Fais-nous confiance, on fait ça bien. Les durées et conditions de conservation figureront sur l'étui (à valider).</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="recuperer">
+  <div class="eyebrow">De chez nous à chez toi</div>
+  <h2>Comment tu la récupères ?</h2>
+  <div class="cards3">
+    <div class="step"><b>🚚 LIVRAISON</b><p>On te l'amène. Toi, tu mets juste la table. Zones et délais à définir.</p></div>
+    <div class="step"><b>🛍️ CLICK-AND-COLLECT</b><p>Tu composes en ligne, tu passes la chercher. Pas de file, pas de chichi. Points de retrait à définir.</p></div>
+    <div class="step"><b>🏬 EN MAGASIN</b><p>Au rayon de notre enseigne partenaire (exclusivité). Les détails du partenariat seront annoncés plus tard.</p></div>
+  </div>
+</section>
+
+<section id="sauces">
+  <div class="eyebrow">Cuisinées avec cœur</div>
+  <h2>Les cinq classiques.</h2>
+  <div class="sauces">
+    <div class="sauce"><b>Liégeoise</b><p>Oignons et sirop de Liège.</p></div>
+    <div class="sauce"><b>Tomate</b><p>À l'italienne, façon mamma.</p></div>
+    <div class="sauce"><b>Moutarde</b><p>Crémeuse et généreuse.</p></div>
+    <div class="sauce"><b>Forestière</b><p>Champignons et caractère.</p></div>
+    <div class="sauce"><b>Brabançonne</b><p>Chicons, crème et lardons.</p></div>
+  </div>
+</section>
+
+<section id="regles">
+  <div class="eyebrow">Les règles de la maison</div>
+  <h2>Libre, oui. N'importe quoi, non.</h2>
+  <div class="cards3">
+    <div class="step"><b>LE HACHÉ A SES LIMITES</b><p>Un minimum et un maximum par commande, 3 viandes au plus. Au-delà, on te le dit. Gentiment… pour l'instant.</p></div>
+    <div class="step"><b>3 HERBES, 3 ÉPICES</b><p>Au-delà, on ne goûte plus rien. Chapelure = gluten, œufs = œuf : c'est écrit dans le récap.</p></div>
+    <div class="step"><b>LE LIANT, C'EST SACRÉ</b><p>Pas d'œuf ou recette végétale ? On prévoit un liant alternatif (à valider). Une boulette qui s'effrite, c'est une boulette ratée.</p></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="brand"><span class="coal" aria-hidden="true"></span>La Gaillette Boulette</div>
+  <p>Une idée née dans le Borinage, au pays des terrils et des gaillettes. Du goût, du caractère et pas de chichis.</p>
+  <p class="small">Démo conceptuelle non commerciale. Aucun prix, aucune commande, aucun paiement. Recettes, compositions, allergènes, conservation, partenariats, producteurs et certifications (dont halal, non certifiée) à valider avant lancement.</p>
+</footer>
+<div id="toast" role="status"></div>
+
+<script>
+(function(){
+"use strict";
+var MAX_HERBS=3,MAX_SPICES=3,MAX_MEATS=3,STEP=50;
+var LIMITS={Particulier:{min:200,max:3000,slider:2000},Professionnel:{min:1000,max:20000,slider:10000}};
+var MEATS=[{k:"Bœuf",c:"#8b3a2b"},{k:"Porc",c:"#d9897a"},{k:"Veau",c:"#c9a27e"},{k:"Agneau",c:"#7a4b3a"},{k:"Volaille",c:"#e8c27a"}];
+var VEGE=[{k:"Mélange végétal maison",c:"#6c8b3c"}];
+var OPTIONS={
+  audience:[{v:"Particulier"},{v:"Professionnel"}],
+  base:[{v:"Viande"},{v:"Végétale"}],
+  preset:[{v:"Maison bœuf-porc",s:"300 g + 200 g"},{v:"100 % bœuf",s:"500 g"},{v:"Trio maison",s:"300 + 200 + 100 g"},{v:"Je dose moi-même",s:"page blanche"}],
+  garnish:[{v:"Oignons"},{v:"Échalotes"},{v:"Persil"},{v:"Chapelure",s:"gluten"},{v:"Œufs",s:"œuf"},{v:"Poivrons confits"},{v:"Ail"}],
+  herbs:[{v:"Ciboulette"},{v:"Thym"},{v:"Romarin"},{v:"Coriandre fraîche"},{v:"Basilic"},{v:"Sauge"},{v:"Origan"},{v:"Estragon"},{v:"Persil plat"}],
+  spices:[{v:"Paprika"},{v:"Cumin"},{v:"Curcuma"},{v:"Muscade"},{v:"Poivre noir"},{v:"Piment d'Espelette"},{v:"Coriandre moulue"},{v:"Quatre-épices"}],
+  dose:[{v:"Léger",s:"pour mémé"},{v:"Normal",s:"comme il faut"},{v:"Costaud",s:"pour les gaillards"}],
+  sauce:[{v:"Liégeoise"},{v:"Tomate façon mamma"},{v:"Moutarde"},{v:"Forestière"},{v:"Brabançonne"},{v:"Sans sauce"}],
+  qtyParticulier:[{v:"2",s:"la signature"},{v:"4"},{v:"6"}],
+  qtyProfessionnel:[{v:"20"},{v:"50"},{v:"100"}],
+  pickup:[{v:"Livraison",s:"on te l'amène"},{v:"Click-and-collect",s:"tu passes la chercher"},{v:"En magasin",s:"notre enseigne partenaire (exclusivité)"}]
+};
+var PRESETS={"Maison bœuf-porc":{"Bœuf":300,"Porc":200},"100 % bœuf":{"Bœuf":500},"Trio maison":{"Bœuf":300,"Porc":200,"Volaille":100},"Je dose moi-même":{}};
+var DEFAULTS={audience:"Particulier",base:"Viande",preset:"Maison bœuf-porc",dose:"Normal",sauce:"Liégeoise",qty:"2",pickup:"Livraison",
+  garnish:["Oignons","Persil","Chapelure","Œufs"],herbs:[],spices:["Poivre noir","Muscade"]};
+var CHEF={preset:"Trio maison",grams:{"Bœuf":300,"Porc":200,"Volaille":100},garnish:["Oignons","Persil","Chapelure","Œufs","Ail"],herbs:["Thym"],spices:["Poivre noir","Muscade"],dose:"Normal",sauce:"Liégeoise"};
+var state;
+function clone(o){return JSON.parse(JSON.stringify(o));}
+function $(id){return document.getElementById(id);}
+function box(g){return document.querySelector('[data-group="'+g+'"]');}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function fmt(g){return g>=1000?(g/1000).toLocaleString("fr-BE",{maximumFractionDigits:2})+" kg":g+" g";}
+function div(cls,txt){return '<div class="'+cls+'">'+esc(txt)+"</div>";}
+var toastTimer;
+function toast(msg){var t=$("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove("show");},2600);}
+
+function meatList(){return state.base==="Végétale"?VEGE:MEATS;}
+function lim(){return LIMITS[state.audience];}
+function listFor(g){
+  if(g==="qty")return state.audience==="Professionnel"?OPTIONS.qtyProfessionnel:OPTIONS.qtyParticulier;
+  return OPTIONS[g];
+}
+function isOff(g,v){
+  if(g!=="garnish")return false;
+  if(v==="Œufs"&&(state.noEgg||state.base==="Végétale"))return true;
+  if(v==="Chapelure"&&state.noGluten)return true;
+  return false;
+}
+function render(g){
+  var el=box(g),multi=el.classList.contains("multi"),html="";
+  listFor(g).forEach(function(o){
+    var sel=multi?state[g].indexOf(o.v)>-1:state[g]===o.v,off=isOff(g,o.v);
+    html+='<button type="button" class="choice'+(multi?" multi":"")+(sel?" selected":"")+(off?" off":"")+'" data-value="'+esc(o.v)+'" aria-pressed="'+sel+'">'+esc(o.v)+(o.s?"<small>"+esc(o.s)+"</small>":"")+"</button>";
+  });
+  el.innerHTML=html;
+}
+function renderAll(){["audience","base","preset","garnish","herbs","spices","dose","sauce","qty","pickup"].forEach(render);}
+function removeFrom(g,v){var i=state[g].indexOf(v);if(i>-1)state[g].splice(i,1);}
+
+function buildMeats(){
+  var wrap=$("meats");wrap.innerHTML="";
+  var L=lim();
+  meatList().forEach(function(m,i){
+    var v=state.grams[m.k]||0;
+    var d=document.createElement("div");d.className="meat";
+    d.innerHTML='<label for="r'+i+'">'+esc(m.k==="Mélange végétal maison"?"Végétal":m.k)+'</label>'+
+      '<input type="range" id="r'+i+'" min="0" max="'+Math.max(L.slider,v)+'" step="'+STEP+'" value="'+v+'" aria-label="Grammes de '+esc(m.k)+'">'+
+      '<input type="number" id="n'+i+'" min="0" max="'+L.max+'" step="'+STEP+'" value="'+v+'" aria-label="Grammes de '+esc(m.k)+' (saisie)">'+
+      '<span class="pct" id="p'+i+'"></span>';
+    wrap.appendChild(d);
+    function set(val,fromNum){
+      val=Math.max(0,Math.round((Number(val)||0)/STEP)*STEP);
+      if(val>L.max){val=L.max;toast("Plus de "+fmt(L.max)+" d'une seule viande ? Même un mineur de fond n'en mange pas autant.");}
+      state.grams[m.k]=val;state.preset="Je dose moi-même";
+      var r=d.querySelector('input[type=range]');if(val>Number(r.max))r.max=val;r.value=val;
+      if(!fromNum)d.querySelector('input[type=number]').value=val;
+      update();
+    }
+    d.querySelector('input[type=range]').addEventListener("input",function(e){set(e.target.value,false);});
+    d.querySelector('input[type=number]').addEventListener("change",function(e){set(e.target.value,false);});
+    d.querySelector('input[type=number]').addEventListener("input",function(e){if(e.target.value!=="")set(e.target.value,true);});
+  });
+}
+function meatInfo(){
+  var list=meatList(),L=lim();
+  var c=list.map(function(m){return {k:m.k,c:m.c,g:state.grams[m.k]||0};}).filter(function(x){return x.g>0;});
+  var total=c.reduce(function(s,x){return s+x.g;},0);
+  c.forEach(function(x){x.p=total?Math.round(x.g*1000/total)/10:0;});
+  var msg,ok=false;
+  if(total===0)msg="Zéro gramme ? C'est une boulette invisible, ça. Mets un peu de haché, fais pas le malin.";
+  else if(c.length>MAX_MEATS)msg=c.length+" viandes ? C'est une boulette, pas un barbecue de ducasse. "+MAX_MEATS+" maximum.";
+  else if(total<L.min)msg="Total "+fmt(total)+" : il faut au moins "+fmt(L.min)+" par commande. On allume pas le four pour trois miettes.";
+  else if(total>L.max)msg="Total "+fmt(total)+" : on s'arrête à "+fmt(L.max)+" par commande"+(state.audience==="Particulier"?". Au-delà, t'es pro ou t'as invité tout le coron ?":". Pour plus, on en parle entre pros.");
+  else {ok=true;msg="Mélange valide. Bien dosé, chef.";}
+  return {c:c,total:total,ok:ok,msg:msg};
+}
+
+function onChoice(g,v){
+  var el=box(g);
+  if(el.classList.contains("multi")){
+    var arr=state[g],i=arr.indexOf(v);
+    if(i>-1){arr.splice(i,1);}
+    else{
+      if(isOff(g,v)){
+        if(v==="Œufs"&&state.base==="Végétale")toast("Des œufs dans une boulette végétale ? Fais pas le malin.");
+        else if(v==="Œufs")toast("T'as coché « sans œuf ». Faudrait savoir, fieu.");
+        else toast("T'as coché « sans gluten ». La chapelure reste au placard.");
+        return;
+      }
+      if(g==="herbs"&&arr.length>=MAX_HERBS){toast("Trois herbes max. C'est une boulette, pas un potager.");return;}
+      if(g==="spices"&&arr.length>=MAX_SPICES){toast("Trois épices max. Tu veux goûter la viande ou juste transpirer ?");return;}
+      arr.push(v);
+    }
+    update();return;
+  }
+  state[g]=v;
+  if(g==="preset"){state.grams=clone(PRESETS[v]);if(state.audience==="Professionnel")scaleGrams(10);buildMeats();}
+  if(g==="base"){
+    if(v==="Végétale"){state.grams={"Mélange végétal maison":state.audience==="Professionnel"?5000:500};removeFrom("garnish","Œufs");}
+    else{state.preset="Maison bœuf-porc";state.grams=clone(PRESETS["Maison bœuf-porc"]);if(state.audience==="Professionnel")scaleGrams(10);}
+    buildMeats();
+  }
+  if(g==="audience"){
+    var pro=v==="Professionnel";
+    state.qty=pro?"50":"2";state.packs=pro?1:3;$("packs").value=state.packs;
+    scaleGrams(pro?10:0.1);buildMeats();
+    toast(pro?"Mode pro : formats et quantités de haché multipliés par 10.":"Retour en mode particulier : on redivise tout par 10.");
+  }
+  update();
+}
+function scaleGrams(f){for(var k in state.grams){state.grams[k]=Math.max(0,Math.round(state.grams[k]*f/STEP)*STEP);}}
+
+function update(){
+  if(state.noEgg||state.base==="Végétale")removeFrom("garnish","Œufs");
+  if(state.noGluten)removeFrom("garnish","Chapelure");
+  renderAll();
+  var L=lim(),pro=state.audience==="Professionnel",vege=state.base==="Végétale";
+
+  // Haché
+  $("presetBox").classList.toggle("hidden",vege);
+  if(vege&&state.local){state.local=false;$("local").checked=false;}
+  $("localBox").classList.toggle("hidden",vege);
+  $("hacheTease").textContent=vege?"Une seule recette végétale pour l'instant. Tu doses la quantité, nous la recette. Elle est bonne, promis, même ton tonton l'a mangée.":"Bœuf, porc, veau, agneau, volaille : par pas de 50 g, 3 viandes maximum. On calcule les pourcentages, toi tu salives.";
+  $("limitsInfo").textContent="Limites par commande ("+state.audience.toLowerCase()+") : de "+fmt(L.min)+" à "+fmt(L.max)+" de haché au total, par pas de "+STEP+" g.";
+  var mi=meatInfo();
+  meatList().forEach(function(m,i){var x=mi.c.filter(function(y){return y.k===m.k;})[0];$("p"+i).textContent=x?x.p.toLocaleString("fr-BE")+" %":"—";});
+  $("bar").innerHTML=mi.c.map(function(x){return '<span title="'+esc(x.k)+'" style="width:'+x.p+'%;background:'+x.c+'"></span>';}).join("");
+  $("meatTotal").innerHTML='<span class="'+(mi.ok?"ok":"ko")+'">Total : '+fmt(mi.total)+" — "+esc(mi.msg)+"</span>";
+
+  // Quantity & grams per boulette
+  var packs=Math.max(1,Math.min(50,Math.floor(Number(state.packs)||1)));
+  var count=Number(state.qty)*packs;
+  var per=count?Math.round(mi.total/count):0;
+  var mm="";
+  if(mi.total>0&&per<25)mm+=div("alert","≈ "+per+" g de haché par boulette : c'est une boulette ou un petit pois ? Ajoute du haché ou réduis la quantité.");
+  else if(per>250)mm+=div("alert","≈ "+per+" g par boulette : là, c'est plus une boulette, c'est un terril. Réduis le haché ou augmente la quantité.");
+  else if(mi.total>0)mm+=div("tip","≈ "+per+" g de haché par boulette pour "+count+" boulettes (repère indicatif, hors garnitures).");
+  $("meatMsg").innerHTML=mm;
+
+  // Garnish
+  var g=state.garnish,gm="";
+  var liantAlt=vege||g.indexOf("Œufs")<0;
+  if(vege)gm+=div("tip","Recette végétale = sans œuf. On passe sur un liant végétal (nature à valider en production).");
+  else if(g.indexOf("Œufs")<0)gm+=div("tip","Sans œuf, ta boulette risque de se faire la malle dans la poêle. On prévoit un liant alternatif (à valider en production).");
+  if(state.noGluten)gm+=div("tip","Sans gluten : pas de chapelure classique. Une alternative sans gluten est à valider. Pense aussi à la sauce, on vérifie tout avant lancement.");
+  if(g.indexOf("Oignons")>-1&&g.indexOf("Échalotes")>-1)gm+=div("tip","Oignons ET échalotes ? T'aimes quand ça pleure, toi. Va pour les deux.");
+  if(g.length===0)gm+=div("alert","Rien dedans ? Une boulette toute nue… C'est permis, mais t'es sûr de toi ?");
+  if(g.indexOf("Chapelure")>-1||g.indexOf("Œufs")>-1)gm+=div("notice","Allergènes : "+[g.indexOf("Chapelure")>-1?"chapelure = gluten":"",g.indexOf("Œufs")>-1?"œufs = œuf":""].filter(Boolean).join(" • ")+". Coche « sans œuf » ou « sans gluten » si besoin.");
+  $("garnishMsg").innerHTML=gm;
+
+  // Herbs / spices
+  $("herbsCount").textContent=state.herbs.length+" / "+MAX_HERBS;
+  $("spicesCount").textContent=state.spices.length+" / "+MAX_SPICES;
+  var hm="";
+  if(state.herbs.indexOf("Persil plat")>-1&&g.indexOf("Persil")>-1)hm+=div("tip","Persil ET persil plat ? T'es un vrai fan. On note, mais fais pas le malin.");
+  if(state.herbs.length===MAX_HERBS)hm+=div("tip","C'est complet. Pour en changer une, décoche d'abord.");
+  $("herbsMsg").innerHTML=hm;
+  var sm="";
+  if(state.spices.length===MAX_SPICES)sm+=div("tip","Trois épices, c'est le plafond. Décoche pour échanger.");
+  if(state.spices.indexOf("Piment d'Espelette")>-1&&state.dose==="Costaud")sm+=div("alert","Espelette + dosage costaud : prévois une bière à côté. Ou deux.");
+  if(state.spices.length===0)sm+=div("tip","Zéro épice ? Même pas un tour de poivre ? Bon, c'est toi le patron.");
+  $("spicesMsg").innerHTML=sm;
+
+  // Sauce
+  $("sauceMsg").innerHTML=state.sauce==="Sans sauce"?div("tip","Sans sauce ? Courageux. Ou t'as déjà ta propre sauce à la maison, on juge pas."):(vege&&state.sauce==="Brabançonne")?div("alert","Boulette végétale + Brabançonne (avec lardons) ? Fais pas le malin. Une version végétale de la sauce reste à valider."):"";
+
+  // Quantity
+  $("qtyTease").textContent=pro?"Formats pros : 20, 50 ou 100 boulettes par lot. La sauce voyage à part, en sachets séparés.":"Le sachet de 2, c'est notre signature. 4 ou 6 si t'as du monde (ou un gros appétit).";
+  $("packsLabel").textContent=pro?"Nombre de lots":"Nombre de sachets";
+  $("proSauceBox").classList.toggle("hidden",!pro||state.sauce==="Sans sauce");
+  $("qtyMsg").innerHTML=(!pro&&count>=30)?div("tip",count+" boulettes en particulier ? Soit c'est la fête, soit t'es pro et tu le dis pas."):"";
+
+  // Pickup
+  var pmsg={"Livraison":"On te l'amène, bien au frais (ou au froid). Zones et délais à définir.","Click-and-collect":"Tu composes, tu passes, tu repars. Points de retrait à définir.","En magasin":"Au rayon de notre enseigne partenaire (exclusivité). Attention : en magasin, ce sera surtout nos recettes à nous. Le sur-mesure complet, c'est plutôt en ligne (à valider)."};
+  $("pickupMsg").innerHTML=div("tip",pmsg[state.pickup]);
+
+  // Recap
+  var hache=mi.c.length?mi.c.map(function(x){return x.k+" "+fmt(x.g)+" ("+x.p.toLocaleString("fr-BE")+" %)";}).join(", "):"rien du tout";
+  var allergens=[];
+  if(g.indexOf("Chapelure")>-1)allergens.push("gluten (chapelure)");
+  if(g.indexOf("Œufs")>-1)allergens.push("œuf");
+  if(state.sauce==="Moutarde")allergens.push("moutarde, lait probable (sauce crémeuse)");
+  if(state.sauce==="Brabançonne")allergens.push("lait (crème)");
+  if(vege&&state.sauce==="Brabançonne")allergens.push("⚠ sauce avec lardons, non végétale");
+  var lines=[
+    "Client : "+state.audience,
+    "Base : "+state.base,
+    "Haché : "+hache,
+    "Total haché : "+fmt(mi.total)+" (≈ "+per+" g par boulette)",
+    "Producteur local : "+(state.local?"oui — supplément, tarif à définir":"non"),
+    "Dedans : "+(g.length?g.join(", "):"rien (boulette nature)"),
+    "Liant : "+(liantAlt?"alternatif"+(vege?" végétal":"")+" (à valider)":"œufs"+(g.indexOf("Chapelure")>-1?" + chapelure":"")),
+    "Herbes : "+(state.herbs.length?state.herbs.join(", "):"aucune"),
+    "Épices : "+(state.spices.length?state.spices.join(", ")+" (dosage "+state.dose.toLowerCase()+")":"aucune"),
+    "Sauce : "+state.sauce+(pro&&state.sauce!=="Sans sauce"?(state.proSauce?" — en sachets séparés":" — incluse"):""),
+    "Quantité : "+state.qty+" boulettes par "+(pro?"lot":"sachet")+" × "+packs+" "+(pro?"lot":"sachet")+(packs>1?"s":"")+" = "+count+" boulettes",
+    "Récupération : "+(state.pickup==="En magasin"?"en magasin, chez notre enseigne partenaire (exclusivité)":state.pickup),
+    "Emballage : poche sous vide + étui carton (frais ou surgelé, au choix de la maison)",
+    "Régime : "+([state.noEgg||vege?"sans œuf":"",state.noGluten?"sans gluten (à valider, sauce comprise)":""].filter(Boolean).join(", ")||"standard"),
+    "Allergènes repérés (indicatif) : "+(allergens.length?allergens.join(", "):"aucun repéré dans tes choix — à confirmer en production")
+  ];
+  var valid=mi.ok;
+  if(!valid)lines.push("⚠ Haché à corriger");
+  var txt=lines.join("\n");
+  $("recap").textContent=txt;
+  $("recapTitle").textContent=valid?"Ça sent déjà bon !":"Euh… on y est presque.";
+  $("recapWarn").innerHTML=valid?"":div("alert",mi.msg);
+  $("copy").disabled=!valid;
+  return txt;
+}
+
+function reset(preset){
+  state=clone(DEFAULTS);
+  state.grams=clone(PRESETS["Maison bœuf-porc"]);state.packs=3;state.noEgg=false;state.noGluten=false;state.proSauce=true;state.local=false;
+  if(preset){for(var k in preset)state[k]=clone(preset[k]);}
+  $("noEgg").checked=false;$("noGluten").checked=false;$("proSauce").checked=true;$("local").checked=false;$("packs").value=state.packs;
+  buildMeats();update();
+}
+
+document.addEventListener("click",function(e){
+  var b=e.target.closest(".choice");if(!b)return;
+  var g=b.parentElement.getAttribute("data-group");if(g)onChoice(g,b.getAttribute("data-value"));
+});
+$("noEgg").addEventListener("change",function(e){state.noEgg=e.target.checked;if(state.noEgg)toast("Sans œuf, noté. On s'occupe du liant.");update();});
+$("noGluten").addEventListener("change",function(e){state.noGluten=e.target.checked;if(state.noGluten)toast("Sans gluten, noté. La chapelure prend congé.");update();});
+$("proSauce").addEventListener("change",function(e){state.proSauce=e.target.checked;update();});
+$("local").addEventListener("change",function(e){state.local=e.target.checked;if(state.local)toast("Producteur local, bon choix. Le tarif ? À définir, fais pas le pressé.");update();});
+$("packs").addEventListener("input",function(e){state.packs=e.target.value;update();});
+$("reset").addEventListener("click",function(){reset();toast("On efface tout et on recommence. Sans rancune.");});
+$("classic").addEventListener("click",function(){reset(CHEF);toast("La suggestion du chef. Tu peux toujours bidouiller, va.");});
+$("copy").addEventListener("click",function(){
+  var t="LA GAILLETTE BOULETTE — Ma composition (démo, sans commande)\n"+update();
+  function fallback(){window.prompt("Copie ta composition :",t);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast("Composition copiée ! Plus qu'à la coller où tu veux.");},fallback);}
+  else fallback();
+});
+reset();
+window.__gaillette={state:function(){return state;},recap:update};
+})();
+</script>
+</body>
+</html>
