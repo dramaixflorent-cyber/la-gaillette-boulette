@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Laboulette — Compose ta boulette</title>
+<meta name="description" content="Appli Laboulette : compose ta boulette boraine de A à Z. Prototype installable, sans commande ni prix.">
+<meta name="theme-color" content="#161211">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Laboulette">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.ico" sizes="any">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<a class="skip" href="#view">Aller au contenu</a>
+<div id="splash" role="dialog" aria-label="Ouverture de Laboulette">
+  <div>
+    <img src="../logo/couleur/laboulette_symbole_couleur.svg" alt="">
+    <p class="word">Laboulette</p>
+    <p class="tag">Fais pas l'boulet.</p>
+  </div>
+</div>
+<header class="top">
+  <div class="bar">
+    <a href="./" aria-label="Laboulette — accueil de l'appli"><img class="logo word" src="../logo/couleur-fond-fonce/laboulette_horizontal_couleur-fond-fonce.svg" alt="Laboulette"><img class="logo mark" src="../logo/couleur/laboulette_symbole_couleur.svg" alt=""></a>
+    <nav aria-label="Appli">
+      <a class="quiet" href="../">Le site</a>
+      <a class="quiet" href="installer.html">Installer</a>
+      <button type="button" class="btn small alt" data-install>Installer l'appli</button>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="view" tabindex="-1"></main>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div id="toast" role="status" aria-live="polite"></div>
+<dialog id="renameDlg">
+  <form method="dialog">
+    <p class="disp" style="font-size:28px;margin-bottom:8px">Renommer</p>
+    <label for="renameInput">Nouveau nom</label>
+    <input id="renameInput" maxlength="60" style="display:block;width:100%;margin:8px 0 14px;padding:12px;border:2px solid #eadfce;border-radius:12px">
+    <div style="display:flex;gap:8px;justify-content:flex-end">
+      <button class="btn ghost" value="cancel">Annuler</button>
+      <button class="btn" value="ok">Renommer</button>
+    </div>
+  </form>
+</dialog>
+<script src="js/logic.js"></script>
+<script src="js/install.js"></script>
+<script src="js/app.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js", {scope: "./"}).catch(function () {});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Installer Laboulette</title>
+<meta name="description" content="Installe la démo Laboulette sur ton téléphone ou ton ordinateur. QR code local, sans service externe.">
+<meta name="theme-color" content="#161211">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Laboulette">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.ico" sizes="any">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="top">
+  <div class="bar">
+    <a href="./" aria-label="Retour à l'appli Laboulette"><img class="logo word" src="../logo/couleur-fond-fonce/laboulette_horizontal_couleur-fond-fonce.svg" alt="Laboulette"><img class="logo mark" src="../logo/couleur/laboulette_symbole_couleur.svg" alt=""></a>
+    <nav aria-label="Installation">
+      <a class="quiet" href="./">L'appli</a>
+      <a class="quiet" href="../">Le site</a>
+      <button type="button" class="btn small alt" data-install>Installer l'appli</button>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+  <span class="eyebrow">Installation</span>
+  <h1 class="disp" style="font-size:clamp(40px,7vw,64px);margin-bottom:8px">Pose Laboulette sur ton écran.</h1>
+  <p class="muted" style="max-width:62ch">Scanne le QR avec l'appareil photo du téléphone. Il ouvre l'appli. Ensuite, suis le geste qui correspond à ton appareil. Le QR est dessiné ici, sans service externe.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start;margin-top:18px">
+    <div class="qr-wrap">
+      <img src="qr-install.svg" width="260" height="260" alt="QR code vers l'appli Laboulette">
+    </div>
+    <div style="flex:1;min-width:240px">
+      <p><b>Adresse de l'appli</b></p>
+      <p class="url" id="appUrl">https://dramaixflorent-cyber.github.io/la-gaillette-boulette/app/</p>
+      <p class="small">Cette page : https://dramaixflorent-cyber.github.io/la-gaillette-boulette/app/installer.html</p>
+      <p style="margin-top:12px"><button type="button" class="btn" id="copyUrl">Copier l'adresse</button></p>
+    </div>
+  </div>
+  <div id="installGuide" style="margin-top:22px"></div>
+  <div class="proto">Prototype. Installer l'appli ne crée pas de compte et ne déclenche aucune commande. Aucun prix, aucun paiement.</div>
+</main>
+<script src="js/install.js"></script>
+<script>
+document.getElementById("copyUrl").addEventListener("click", function () {
+  var url = document.getElementById("appUrl").textContent;
+  var done = function () { this.textContent = "Copié"; }.bind(this);
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, function () { window.prompt("Copie l'adresse :", url); });
+  else window.prompt("Copie l'adresse :", url);
+});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js", {scope: "./"}).catch(function () {});
+</script>
+</body>
+</html>
